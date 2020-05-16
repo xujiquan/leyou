@@ -2,7 +2,7 @@ server:
   port: 10086
 spring:
   application:
-    name: itcast-eureka # \u5C06\u6765\u4F1A\u4F5C\u4E3A\u670D\u52A1id\u6216\u8005\u670D\u52A1\u540D\u6CE8\u518C\u5230eureka\u6CE8\u518C\u4E2D\u5FC3
+    name: itcast-eureka # 将来会作为服务id或者服务名注册到eureka注册中心
 eureka:
   client:
     service-url:
