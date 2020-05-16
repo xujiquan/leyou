@@ -13,20 +13,24 @@ import javax.sql.DataSource;
 
 @Configuration // 声明一个类是一个java配置类，相当于xml配置
 //@PropertySource("classpath:jdbc.properties") // 读取外部资源 文件
-//@EnableConfigurationProperties(JdbcProperties.class) // 启用资源配置读取类
+@EnableConfigurationProperties(JdbcProperties.class) // 启用资源配置读取类
 public class JdbcConfiguration {
 
-    //@Autowired
-    //private JdbcProperties jdbcProperties;
+    @Autowired
+    private JdbcProperties jdbcProperties;
 
     /*public JdbcConfiguration(JdbcProperties jdbcProperties){
         this.jdbcProperties = jdbcProperties;
     }*/
 
     @Bean // 把方法的返回值注入spring容器
-    @ConfigurationProperties(prefix = "jdbc")
+    //@ConfigurationProperties(prefix = "jdbc")
     public DataSource dataSource(){
         DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(this.jdbcProperties.getDriverClassName());
+        dataSource.setUrl(this.jdbcProperties.getUrl());
+        dataSource.setUsername(this.jdbcProperties.getUsername());
+        dataSource.setPassword(this.jdbcProperties.getPassword());
         return dataSource;
     }
 }
