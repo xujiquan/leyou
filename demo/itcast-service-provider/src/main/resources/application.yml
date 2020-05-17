@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:mysql:///mybatis
+    url: jdbc:mysql:///leyou
     username: root
     password: root
   application:
@@ -14,5 +14,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka
   instance:
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5 # 心跳时间
+    lease-expiration-duration-in-seconds: 15 # 过期时间

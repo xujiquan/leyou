@@ -8,5 +8,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka
   server:
-    eviction-interval-timer-in-ms: 10000
-    enable-self-preservation: false
+    evict-interval-timer-in-ms: 10000 # 剔除无效连接的间隔时间
+    enable-self-preservation: false # 关闭自我保护
